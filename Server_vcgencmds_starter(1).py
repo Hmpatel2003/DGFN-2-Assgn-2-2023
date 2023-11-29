@@ -21,10 +21,12 @@ while True:
     # Get the Core Temperature, Voltage, and Clock Speed from Pi
     temperature = os.popen('vcgencmd measure_temp').readline().strip()
     voltage = os.popen('vcgencmd measure_volts core').readline().strip()
+    clock_speed = os.popen('vcgencmd measure_clock arm').readline().strip()
 
     data_dict = {
         'Temperature': [temperature],
-        'Voltage': [voltage]
+        'Voltage': [voltage],
+        'ClockSpeed': [clock_speed]
         }
 
 # Convert dictionary to JSON string
