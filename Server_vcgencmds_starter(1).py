@@ -23,12 +23,14 @@ while True:
     voltage = os.popen('vcgencmd measure_volts core').readline().strip()
     clock_speed = os.popen('vcgencmd measure_clock arm').readline().strip()
     core_speed= os.popen('vcgencmd measure_clock core').readline().strip()
+    voltage_sdram_c = os.popen('vcgencmd measure_volts sdram_c').readline().strip()
 
     data_dict = {
         'Temperature': [temperature],
         'Voltage': [voltage],
         'ClockSpeed': [clock_speed],
         'CoreSpeed' : [core_speed],
+        'Voltage_sdram_c' : [voltage_sdram_c] 
         }
 
 # Convert dictionary to JSON string
